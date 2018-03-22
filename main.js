@@ -44,8 +44,8 @@ const buildDomString = (countriesArray) => {
         domString += `<div class="card">`;
         domString += `<h2>${country.location}</h2>`;
         domString += `<img src=${country.image}>`;
-        domString += `<h2>${country.description}</h2>`;
-        domString += `<textarea placeholder="Write entry here..."></textarea>`
+        domString += `<h3>${country.description}</h3>`;
+        domString += `<textarea placeholder="Begin entry..."></textarea>`;
         domString += `<br>`;
         domString += `<button class="card-button">Add diary entry</button>`;
         domString += `</div>`;
@@ -53,3 +53,4 @@ const buildDomString = (countriesArray) => {
     printToDom(domString, 'travel-diary');
 }
 buildDomString(travelDiary);
+
