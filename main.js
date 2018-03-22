@@ -1,5 +1,3 @@
-console.log('testing');
-
 var travelDiary = [
     {
         location: "Argentina",
