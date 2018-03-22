@@ -1,4 +1,4 @@
-console.log('hello this is travel diary, matey');
+console.log('testing');
 
 var travelDiary = [
     {
