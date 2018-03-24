@@ -57,9 +57,6 @@ buildDomString(travelDiary);
 // create variable to hold diary entry input that will become output
 let inputToOutput = document.getElementsByClassName("diary-input");
 
-// create empty array to hold the diary entry string so something is holding it before you call print
-domArray = [];
-
 // create variable to record the time of submitting entry
 currentTime = new Date();
 
@@ -71,8 +68,10 @@ console.log('diaryEntryButtons:', diaryButtons);
 for (let i = 0; i < diaryButtons.length; i++) {
     diaryButtons[i].addEventListener('click', (e) => {
        let domString = "";
+       // create empty array to hold the diary entry string + to clear out the previous one
+       let domArray = [];
        domString += `<div class="output-card"`;
-       domString += `<h2 class="output-loc">${travelDiary[i].location}</h2>`;
+       domString += `<h2>${travelDiary[i].location}</h2>`;  // not recognizing h2 tag
        domString += `<p>${currentTime}</p>`;
        domString += `<div class="output">${inputToOutput[i].value}</div>`;
        domString += `</div`;
