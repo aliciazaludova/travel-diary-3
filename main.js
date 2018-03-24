@@ -45,7 +45,7 @@ const buildDomString = (countriesArray) => {
         domString += `<h2>${country.location}</h2>`;
         domString += `<img src=${country.image}>`;
         domString += `<h3>${country.description}</h3>`;
-        domString += `<textarea class="diary-input" placeholder="Begin entry..."></textarea>`;
+        domString += `<textarea class="diary-input" placeholder="Begin entry..." rows="1" cols="30"></textarea>`;
         domString += `<br>`;
         domString += `<button class="card-button">Add entry</button>`;
         domString += `</div>`;
@@ -60,18 +60,21 @@ let inputToOutput = document.getElementsByClassName("diary-input");
 // create empty array to hold the diary entry string so something is holding it before you call print
 domArray = [];
 
+// create variable to record the time of submitting entry
+currentTime = new Date();
+
 // locate buttons
 const diaryButtons = document.getElementsByClassName('card-button');
 console.log('diaryEntryButtons:', diaryButtons);
 
-
 // listen for click on buttons--loop through each
 for (let i = 0; i < diaryButtons.length; i++) {
     diaryButtons[i].addEventListener('click', (e) => {
-       domString = ''
+       let domString = "";
        domString += `<div class="output-card"`;
-       domString += `<h2>${travelDiary.location}</h2>`;
-       domString += `<textarea class="output">${inputToOutput[i].value}</textarea>`;
+       domString += `<h2 class="output-loc">${travelDiary[i].location}</h2>`;
+       domString += `<p>${currentTime}</p>`;
+       domString += `<div class="output">${inputToOutput[i].value}</div>`;
        domString += `</div`;
        domArray.push(domString);
        printToDom(domArray, 'printed-entries');

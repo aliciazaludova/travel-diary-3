@@ -35,4 +35,10 @@ textarea {
     margin-bottom: 15px;
     font-family: 'IM Fell English', serif;
     font-size: 1em;
+    cursor: pointer;
+}
+
+.output-loc {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
