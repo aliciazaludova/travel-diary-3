@@ -45,12 +45,37 @@ const buildDomString = (countriesArray) => {
         domString += `<h2>${country.location}</h2>`;
         domString += `<img src=${country.image}>`;
         domString += `<h3>${country.description}</h3>`;
-        domString += `<textarea placeholder="Begin entry..."></textarea>`;
+        domString += `<textarea class="diary-input" placeholder="Begin entry..." rows="1" cols="30"></textarea>`;
         domString += `<br>`;
-        domString += `<button class="card-button">Add diary entry</button>`;
+        domString += `<button class="card-button">Add entry</button>`;
         domString += `</div>`;
     });
     printToDom(domString, 'travel-diary');
 }
 buildDomString(travelDiary);
 
+// create variable to hold diary entry input that will become output
+let inputToOutput = document.getElementsByClassName("diary-input");
+
+// create variable to record the time of submitting entry
+currentTime = new Date();
+
+// locate buttons
+const diaryButtons = document.getElementsByClassName('card-button');
+console.log('diaryEntryButtons:', diaryButtons);
+
+// listen for click on buttons--loop through each
+for (let i = 0; i < diaryButtons.length; i++) {
+    diaryButtons[i].addEventListener('click', (e) => {
+       let domString = "";
+       // create empty array to hold the diary entry string + to clear out the previous one
+       let domArray = [];
+       domString += `<div class="output-card"`;
+       domString += `<h2>${travelDiary[i].location}</h2>`;  // not recognizing h2 tag
+       domString += `<p>${currentTime}</p>`;
+       domString += `<div class="output">${inputToOutput[i].value}</div>`;
+       domString += `</div`;
+       domArray.push(domString);
+       printToDom(domArray, 'printed-entries');
+    });
+}
