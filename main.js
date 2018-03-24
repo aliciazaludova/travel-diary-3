@@ -70,11 +70,11 @@ for (let i = 0; i < diaryButtons.length; i++) {
        let domString = "";
        // create empty array to hold the diary entry string + to clear out the previous one
        let domArray = [];
-       domString += `<div class="output-card"`;
+       domString += `<div class="output-card">`;
        domString += `<h2>${travelDiary[i].location}</h2>`;  // not recognizing h2 tag
        domString += `<p>${currentTime}</p>`;
        domString += `<div class="output">${inputToOutput[i].value}</div>`;
-       domString += `</div`;
+       domString += `</div>`;
        domArray.push(domString);
        printToDom(domArray, 'printed-entries');
     });
